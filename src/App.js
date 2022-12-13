@@ -4,8 +4,8 @@ import './App.css';
 
 
 
-const Input = ({elDelete, id}) => {
-  const [inputName, setInputName] = useState(id)
+const Input = ({remItem, id}) => {
+  const [inputName, setInputName] = useState('')
   const [inputValue, setInputValue] = useState()
 
   // function delNode(el){el.remove()}
@@ -13,10 +13,10 @@ const Input = ({elDelete, id}) => {
   //   console.log("useEffect")
   //   }, [elDelete])
   return (
-    <div className='element'>
+    <div className={`element-${id}`}>
       <input value={inputName} className='el--Name' onChange={e => setInputName(e.target.value)} placeholder="Название" />
       <input style={{ marginRight: 10 }} type="number" value={inputValue} className='el--Value' onChange={e => setInputValue(e.target.value)} />Вт
-      <button onClick={() => elDelete(id)} >Удалить</button>
+      <button onClick={() => remItem(id)} >Удалить</button>
     </div>
   )
 }
@@ -34,11 +34,11 @@ function App() {
   const allBats = allBat * 0.3
   const alllll = Math.ceil(allBat + allBats)
   const result = Math.floor(volt * amper)
-  // const id = nanoid()
-const id = allInput.length
+  const id = nanoid()
+// const id = allInput.length
   const addInput = () => {
     // const index = allInput.length
-    setAllInput(allInput.concat(<Input key={id} elDelete={elDelete} id={id} />));
+    setAllInput(allInput.concat(<Input key={id} remItem={remItem} id={id} />));
   };
 
 
@@ -68,37 +68,41 @@ const id = allInput.length
       
   //   })
   // }
-  const elDelete = (id) => {
-    setAllInput( () => 
-    // const test = allInput.find(id)
-    // if (test)
-    allInput.filter( el => el.id !== id)
-    )
-    //  const arr = allInput
-      // setAllInput(arr => {
-      //   console.log(`allInput.length = ${arr.length}`)
-      //   for (let i = 0; i < arr.length; i++) {
-      //     console.log(`key = ${id} value[id].key = ${arr[id].key} value[i].key = ${arr[i].key}`)
-      //     if (id === arr[i].key) {
-      //       arr.splice([i].key, 1)
+  // const elDelete = (id) => {
+  //   setAllInput( () => 
+  //   // const test = allInput.find(id)
+  //   // if (test)
+  //   allInput.filter( el => el.id !== id)
+  //   )
+  //   //  const arr = allInput
+  //     // setAllInput(arr => {
+  //     //   console.log(`allInput.length = ${arr.length}`)
+  //     //   for (let i = 0; i < arr.length; i++) {
+  //     //     console.log(`key = ${id} value[id].key = ${arr[id].key} value[i].key = ${arr[i].key}`)
+  //     //     if (id === arr[i].key) {
+  //     //       arr.splice([i].key, 1)
             
-      //     }
-      //     console.log(arr)
-      //     return arr
-      //   }
+  //     //     }
+  //     //     console.log(arr)
+  //     //     return arr
+  //     //   }
         
-      // })
-    }
+  //     // })
+  //   }
 // useEffect(() => {
 // console.log("useEffect")
 // }, [allInput])
-function remItem(index) {
-	console.log(index);
-  setAllInput([...allInput.slice(0, index), ...allInput.slice(index + 1)])
+
+
+function remItem(id) {
+	console.log(id);
+  setAllInput([...allInput.slice(0, id), ...allInput.slice(id + 1)])
+  // setAllInput(allInput.filter( el => el.index !== index))
 }
 const res = allInput.map((inpt, id) => {
-  return <li key={id} onClick={() => remItem(id)}>{inpt}</li>
+  return <li className={`elem-${id}`} key={id} >{inpt}<button onClick={() => remItem(id)} >Удалить</button></li>
 })
+console.log(id)
   return (
     <div className="App">
 
