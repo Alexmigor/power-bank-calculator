@@ -4,24 +4,22 @@ import './App.css';
 
 
 
-const Input = ({elDelete, id}) => {
-  const [inputName, setInputName] = useState(id)
-  const [inputValue, setInputValue] = useState()
+const Input = () => {
+  const [inputName, setInputName] = useState('')
+  const [inputValue, setInputValue] = useState(0)
 
   // function delNode(el){el.remove()}
-  // useEffect(() => {
-  //   console.log("useEffect")
-  //   }, [elDelete])
+
   return (
     <div className='element'>
       <input value={inputName} className='el--Name' onChange={e => setInputName(e.target.value)} placeholder="Название" />
       <input style={{ marginRight: 10 }} type="number" value={inputValue} className='el--Value' onChange={e => setInputValue(e.target.value)} />Вт
-      <button onClick={() => elDelete(id)} >Удалить</button>
     </div>
   )
 }
 
 function App() {
+  const id = nanoid()
   const [allInput, setAllInput] = useState([])
   const [volt, setVolt] = useState(0)
   const [amper, setAmper] = useState(0)
@@ -34,12 +32,12 @@ function App() {
   const allBats = allBat * 0.3
   const alllll = Math.ceil(allBat + allBats)
   const result = Math.floor(volt * amper)
-  // const id = nanoid()
-const id = allInput.length
-  const addInput = () => {
-    // const index = allInput.length
-    setAllInput(allInput.concat(<Input key={id} elDelete={elDelete} id={id} />));
-  };
+
+
+  // const addInput = () => {
+
+  //   setAllInput(allInput.concat(<Input key={id} />));
+  // };
 
 
   const findTotal = () => {
@@ -51,48 +49,13 @@ const id = allInput.length
     }
     // document.getElementById('total').value = tot;
   }
-  
-  // const elDelete = (id) => {
-  // //  const arr = allInput
-  //   setAllInput(arr => {
-  //     console.log(`allInput.length = ${arr.length}`)
-  //     for (let i = 0; i < arr.length; i++) {
-  //       console.log(`key = ${id} value[id].key = ${arr[id].key} value[i].key = ${arr[i].key}`)
-  //       if (id === arr[i].key) {
-  //         arr.splice([i].key, 1)
-          
-  //       }
-  //       console.log(arr)
-  //       return arr
-  //     }
-      
-  //   })
-  // }
-  const elDelete = (id) => {
-    setAllInput( () => 
-    // const test = allInput.find(id)
-    // if (test)
-    allInput.filter( el => el.id !== id)
-    )
-    //  const arr = allInput
-      // setAllInput(arr => {
-      //   console.log(`allInput.length = ${arr.length}`)
-      //   for (let i = 0; i < arr.length; i++) {
-      //     console.log(`key = ${id} value[id].key = ${arr[id].key} value[i].key = ${arr[i].key}`)
-      //     if (id === arr[i].key) {
-      //       arr.splice([i].key, 1)
-            
-      //     }
-      //     console.log(arr)
-      //     return arr
-      //   }
-        
-      // })
-    }
-// useEffect(() => {
-// console.log("useEffect")
-// }, [allInput])
+  const elDell = () => {
+    console.log("GOGO")
+    
+    setAllInput(allInput.pop())
+  }
 
+  console.log(allInput)
   return (
     <div className="App">
 
@@ -115,14 +78,10 @@ const id = allInput.length
           {allInput}
 
           <br />
-          <button onClick={addInput} >Добавить</button>
+          <button onClick={() => setAllInput(allInput.concat(<Input key={id} />))} >Добавить</button>
           <button onClick={findTotal} >Результат</button>
-          {/* <button onClick={() => {
-            setallInput([])
-            setTot(0)
-
-
-          }} >Сброс</button> */}
+          <button className='butt' onClick={() => {setAllInput([]); setTot(0)}}  >Сброс</button>
+         
           <br />
           <span style={{ color: "green" }}>Итого: {tot} Вт</span>
           <p style={{ fontSize: "1rem", padding: 20 }}>Номинальная мощность инвертора должна быть больше данного значения.</p>
