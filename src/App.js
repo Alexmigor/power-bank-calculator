@@ -92,7 +92,13 @@ const id = allInput.length
 // useEffect(() => {
 // console.log("useEffect")
 // }, [allInput])
-
+function remItem(index) {
+	console.log(index);
+  setAllInput([...allInput.slice(0, index), ...allInput.slice(index + 1)])
+}
+const res = allInput.map((inpt, id) => {
+  return <li key={id} onClick={() => remItem(id)}>{inpt}</li>
+})
   return (
     <div className="App">
 
@@ -112,9 +118,10 @@ const id = allInput.length
           <h3>Определить общую мощность всех устройств</h3>
           <p style={{ fontSize: "1rem", padding: 20 }}>Добавьте в список название и мощность устройств, которые будут одновременно работать от Вашего инвертора нажав кнопку "Добавить", затем нажмите на "Результат" для вычисления общего значения.</p>
           Список устройств:
-          {allInput}
+          {/* {allInput} */}
 
           <br />
+          {res}
           <button onClick={addInput} >Добавить</button>
           <button onClick={findTotal} >Результат</button>
           {/* <button onClick={() => {

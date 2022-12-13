@@ -51,7 +51,7 @@ function App() {
   }
   const elDell = () => {
     console.log("GOGO")
-    
+
     setAllInput(allInput.pop())
   }
 
@@ -80,8 +80,8 @@ function App() {
           <br />
           <button onClick={() => setAllInput(allInput.concat(<Input key={id} />))} >Добавить</button>
           <button onClick={findTotal} >Результат</button>
-          <button className='butt' onClick={() => {setAllInput([]); setTot(0)}}  >Сброс</button>
-         
+          <button className='butt' onClick={() => { setAllInput([]); setTot(0) }}  >Сброс</button>
+
           <br />
           <span style={{ color: "green" }}>Итого: {tot} Вт</span>
           <p style={{ fontSize: "1rem", padding: 20 }}>Номинальная мощность инвертора должна быть больше данного значения.</p>
