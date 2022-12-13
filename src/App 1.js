@@ -89,7 +89,7 @@ function App() {
         </div>
         <div className='accum-bat' >
           <h3>Расчитать емкость АКБ (12 V)</h3>
-          <input type="number" value={tot} onChange={e => setTot(e.target.value)} style={{ marginRight: 7 }} />Вт <span style={{ fontSize: 30, margin: 10, color: "green" }} >* </span><input type="number" value={hour} style={{ marginRight: 0 }} onChange={e => setHour(e.target.value)} /> час (время работы)
+          <input type="number" value={tot} onChange={e => setTot(e.target.value)} style={{ marginRight: 7 }} />Вт <span style={{ fontSize: 30, margin: 10, color: "green" }} >* </span><input type="number" value={hour} style={{ marginRight: 0 }} onChange={e => setHour(e.target.value)} /> Часов
           <p style={{ color: "green", margin: "1rem" }}> Более {alllll}  Аh</p>
           <p style={{ fontSize: "1rem" }}>Автомобильные аккумуляторы нельзя разряжать полностью! Остаточная ёмкость должна составлять не менее 25-30%.<br /> Поэтому, с поправкой на коэффициент остаточной емкости, для вышеуказанной мощности необходима система состоящая из одного или нескольких аккумуляторов общей емкостью не менее <span>{alllll}</span> Ah.</p>
         </div>
