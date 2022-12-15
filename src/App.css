@@ -86,7 +86,7 @@ ul {
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 30rem;
+  width: 10rem;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -97,8 +97,8 @@ ul {
   /* Position the tooltip text */
   position: absolute;
   z-index: 1;
-  bottom: 100%;
-  left: -25%;
+  top: 10%;
+  left: 140%;
   margin-left: -60px;
 
   /* Fade in tooltip */
