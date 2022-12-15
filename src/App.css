@@ -1,36 +1,57 @@
 .App {
   text-align: center;
+  vertical-align: bottom;
+  background-color: #282c34;
+  color: white;
   
   /* font-size: 16px; */
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 1.5vmin);
-  color: white;
-  padding: 0 20px;
+  /* color: white; */
+  padding: 0 20%;
 }
 
 input {
   margin-right: 1rem;
   width: 3rem;
-  height: 1.3rem;
+  height: 1.2rem;
   font-size: 1rem;
   text-align: center;
+}
+select {
+  height: 1.5rem;
+  
 }
 
 button {
 
-  /* height: 1rem; */
   font-size: 1rem;
-  /* border-radius: 10px; */
+
   text-align: center;
   margin: 1rem 0.5rem;
+}
+
+ul {
+  display: grid;
+  justify-content: center;
+  
+
+}
+
+li {
+  height: 2.5rem;
+  text-align: left;
+}
+ul {
+  list-style: none;
 }
 
 .element {
@@ -52,9 +73,56 @@ button {
   width: 12rem;
 }
 
-/* .App-link {
+.App-link {
   color: #61dafb;
+}
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted lightgray; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 30rem;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 1rem;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: -25%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+/* .tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #000 transparent transparent transparent;
 } */
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 
 /* @keyframes App-logo-spin {
   from {
