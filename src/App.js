@@ -7,7 +7,7 @@ export const Input = ({ index }) => {
   const local = JSON.parse(window.localStorage.getItem(`inputValue ${index}`))
 
   const [inputValue, setInputValue] = useState(local ? local : 0)
-
+ 
   useEffect(() => {
     const local = JSON.parse(window.localStorage.getItem(`inputValue ${index}`))
     setInputValue(local);
@@ -18,16 +18,15 @@ export const Input = ({ index }) => {
   }, [inputValue, index]);
 
   return (<>
-    {/* <label for="lang">Устройство</label>  */}
-    <select name="вevices">
-      <option value="select">Выберите устройство</option>
-      <option value="150">Отопительный котел</option>
-      <option value="70" >Телевизор LED</option>
-      <option value="70">Ноутбук</option>
-      <option value="50">Монитор</option>
-      <option value="30">Роутер</option>
-      <option value="10">Медиаконвертер</option>
-      <option value="another">Другое...</option>
+    <select value={inputValue} onChange={e => setInputValue(e.target.value)}>
+      <option className='option' value="0">Мое устройство</option>
+      <option className='option' value="130">Отопительный котел</option>
+      <option className='option' value="80" >Телевизор LED 42'</option>
+      <option className='option' value="70" >Ноутбук</option>
+      <option className='option' value="60">Телевизор LED 32'</option>
+      <option className='option' value="30">Роутер</option>
+      <option className='option' value="10">Медиаконвертер</option>
+      
     </select> <input style={{ marginRight: 10 }} type='number' value={inputValue} className='el--Value' onChange={e => setInputValue(e.target.value)} /><span>Вт</span>
   </>
   )
@@ -40,19 +39,14 @@ function App() {
   const [tot, setTot] = useState(0)
   const [hour, setHour] = useState(0)
 
-
-
   const allBat = tot / 12 * hour
   const allBats = allBat * 0.3
   const alllll = Math.ceil(allBat + allBats)
   const result = Math.floor(volt * amper)
   const index = nanoid()
-  // const index = allInput.length
+
   const addInput = () => {
-    // const index = allInput.length
-    // const copy = allInput.push(<Input key={index} remItem={remItem} index={index} />)
     setAllInput([...allInput, <Input key={index} remItem={remItem} index={index} allInput={allInput} />])
-    // setAllInput(allInput.concat(<Input key={index} remItem={remItem} index={index} />));
   };
 
 
@@ -63,61 +57,17 @@ function App() {
       if (parseInt(arr[i].value))
         setTot(tot += parseInt(arr[i].value));
     }
-    // document.getElementById('total').value = tot;
   }
-
-  // const elDelete = (index) => {
-  // //  const arr = allInput
-  //   setAllInput(arr => {
-  //     console.log(`allInput.length = ${arr.length}`)
-  //     for (let i = 0; i < arr.length; i++) {
-  //       console.log(`key = ${index} value[index].key = ${arr[index].key} value[i].key = ${arr[i].key}`)
-  //       if (index === arr[i].key) {
-  //         arr.splice([i].key, 1)
-
-  //       }
-  //       console.log(arr)
-  //       return arr
-  //     }
-
-  //   })
-  // }
-  // const elDelete = (index) => {
-  //   setAllInput( () => 
-  //   // const test = allInput.find(index)
-  //   // if (test)
-  //   allInput.filter( el => el.index !== index)
-  //   )
-  //   //  const arr = allInput
-  //     // setAllInput(arr => {
-  //     //   console.log(`allInput.length = ${arr.length}`)
-  //     //   for (let i = 0; i < arr.length; i++) {
-  //     //     console.log(`key = ${index} value[index].key = ${arr[index].key} value[i].key = ${arr[i].key}`)
-  //     //     if (index === arr[i].key) {
-  //     //       arr.splice([i].key, 1)
-
-  //     //     }
-  //     //     console.log(arr)
-  //     //     return arr
-  //     //   }
-
-  //     // })
-  //   }
-  // useEffect(() => {
-  // console.log("useEffect")
-  // }, [allInput])
-
 
   function remItem(index) {
     console.log(index);
     setAllInput([...allInput.slice(0, index), ...allInput.slice(index + 1)])
-    // setAllInput(allInput.filter( el => el.index !== index))
   }
+
   const res = allInput.map((inpt, index) => {
     return <li className={`elem-${index}`} key={index} >{inpt}<button onClick={() => remItem(index)} >Удалить</button></li>
   })
 
-  console.log(index)
   return (
     <div className="App">
       <header className="App-header">
@@ -141,8 +91,7 @@ function App() {
             <br />Введите значения мощности в Ваттах для каждого из них. 
             <br />Нажмите на "Результат".</p>
           Список устройств:
-          {/* {allInput} */}
-
+         
           <br />
           <ul>{res}</ul>
 
