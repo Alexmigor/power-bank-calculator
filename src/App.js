@@ -17,7 +17,8 @@ export const Input = ({ index }) => {
     window.localStorage.setItem(`inputValue ${index}`, inputValue);
   }, [inputValue, index]);
 
-  return (<>
+  return (
+  <div className='input'>
     <select value={inputValue} onChange={e => setInputValue(e.target.value)}>
       <option className='option' value="0">Мое устройство</option>
       <option className='option' value="130">Отопительный котел</option>
@@ -28,7 +29,7 @@ export const Input = ({ index }) => {
       <option className='option' value="10">Медиаконвертер</option>
       
     </select> <input style={{ marginRight: 10 }} type='number' value={inputValue} className='el--Value' onChange={e => setInputValue(e.target.value)} /><span>Вт</span>
-  </>
+  </div>
   )
 }
 
@@ -65,21 +66,19 @@ function App() {
   }
 
   const res = allInput.map((inpt, index) => {
-    return <li className={`elem-${index}`} key={index} >{inpt}<button onClick={() => remItem(index)} >Удалить</button></li>
+    return <li className={`elem`} key={index} >{inpt}<button onClick={() => remItem(index)} >Удалить</button></li>
   })
 
   return (
     <div className="App">
       <header className="App-header">
-
-        <div className="tooltip"><h1>Calculator</h1>
-          <span className="tooltiptext">Данный калькулятор предназначен для расчета мощности инвертора и емкости автомобильного аккумулятора домашнего аварийного повербанка.</span>
-        </div>
+      <i style={{fontSize: "0.9rem"}}>Данный калькулятор предназначен для расчета мощности инвертора и емкости автомобильного аккумулятора для домашнего аварийного повербанка</i>
+        <h1>Calculator</h1>
         <h2>Emergency Power Bank for Home</h2>
         <div className='power' >
           <h3>Определить мощность изделия в Ваттах</h3>
-          V = <input value={volt} type="number" onChange={e => setVolt(e.target.value)} />
-          A =  <input value={amper} type="number" onChange={e => setAmper(e.target.value)} />
+          <i>V</i> = <input value={volt} type="number" onChange={e => setVolt(e.target.value)} />
+          <i>A</i> =  <input value={amper} type="number" onChange={e => setAmper(e.target.value)} />
           Вт = <span style={{ color: "green", fontSize: "1.6rem" }}>{result}</span>
 
         </div>
@@ -90,8 +89,7 @@ function App() {
             <br />Составьте список устройств, которые будут одновременно работать от вашего инвертора. 
             <br />Введите значения мощности в Ваттах для каждого из них. 
             <br />Нажмите на "Результат".</p>
-          Список устройств:
-         
+          <p>Список устройств:</p>
           <br />
           <ul>{res}</ul>
 
@@ -100,7 +98,7 @@ function App() {
           <button onClick={() => { setAllInput([]); setTot(0) }}  >Сброс</button>
 
           <br />
-          <span style={{ color: "green" }}>Итого: {tot} Вт</span>
+          <p className='green' >Итого: {tot} Вт</p>
           <p style={{ fontSize: "1rem", padding: 20 }}>Номинальная мощность вашего инвертора должна быть больше вышеуказанного значения.</p>
 
         </div>
@@ -108,8 +106,9 @@ function App() {
           <h3>Расчитать емкость АКБ (12 V)</h3>
           <p style={{ fontSize: "1rem" }}>Укажите желаемое время работы повербанка</p>
           <input type="number" value={tot} onChange={e => setTot(e.target.value)} style={{ marginRight: 7 }} />Вт <span style={{ fontSize: 30, margin: 10, color: "green" }} >* </span><input type="number" value={hour} style={{ marginRight: 0 }} onChange={e => setHour(e.target.value)} /> час
-          <p style={{ color: "green", margin: "1rem" }}> Более {alllll}  Аh</p>
-          <p style={{ fontSize: "1rem" }}>Автомобильные аккумуляторы нельзя разряжать полностью!<br /> Остаточная ёмкость его должна составлять не менее 25-30%.<br /> Поэтому, с поправкой на коэффициент, для данной системы необходим аккумулятор(ры) общей емкостью не менее <span>{alllll}</span>Ah.</p>
+          <br/>
+          <p className='green' > Более {alllll}  Аh</p>
+          <p style={{ fontSize: "1rem", padding: 20 }}>Автомобильные аккумуляторы нельзя разряжать полностью!<br /> Остаточная ёмкость его должна составлять не менее 25-30%.<br /> Поэтому, с поправкой на коэффициент, для данной системы необходим аккумулятор(ры) общей емкостью не менее <span>{alllll}</span>Ah.</p>
         </div>
 
 
