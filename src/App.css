@@ -45,10 +45,20 @@ button {
   text-align: center;
   margin-right: 0.8rem;
   height: 1.6rem;
-  width: 4rem;
+  width: 5rem;
   font-size: 0.8rem;
-
+  border-radius: 5px;
+ 
 }
+button:hover {
+  background-color:  darkgray;
+}
+button:active {
+  background-color: gray;
+  box-shadow: 0 5px #666;
+  transform: translateY(1px);
+}
+
 ul {
   list-style: none;
   display: grid;
