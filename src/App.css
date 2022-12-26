@@ -109,7 +109,6 @@ li span {
 a:link {
   color: #72bdcf;
   text-decoration: none;
-  font-size: 1rem;
 }
 
 
@@ -117,6 +116,9 @@ a:hover {
   color: #247aac;
 }
 
+footer {
+  font-size: 0.7rem;
+}
 
 @media only screen and (min-width: 768px) {
   .App-main {

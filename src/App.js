@@ -112,7 +112,7 @@ function App() {
 
       </main>
 
-      <footer>&copy; 2022 <a href='mailto:studimag@gmail.com'>&nbsp;Studio-MAG</a>&nbsp; 🇺🇦</footer>
+      <footer>&copy; 2022 <a href='mailto:studimag@gmail.com'>&nbsp;Studio-MAG</a>&nbsp; <img src='flag2.png' width="15" ></img></footer>
     </div>
   );
 }
