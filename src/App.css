@@ -92,6 +92,9 @@ li span {
   margin-bottom: 1rem;
 }
 
+.left {
+  text-align: left;
+}
 .green {
   color: green;
   margin-top: 0.5rem;
