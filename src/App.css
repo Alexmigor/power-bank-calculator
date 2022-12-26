@@ -20,12 +20,9 @@ h2 {
   text-align: center;
 }
 
-h1,
-h2,
-h3 {
-  margin: 1rem 0;
+h2 {
+  margin-bottom: 1rem;
 }
-
 p {
   font-size: 1rem;
   margin: 1rem 0;
@@ -83,7 +80,10 @@ li {
 li span {
   margin-right: 1rem;
 }
-
+.italic {
+  font-style: italic;
+  font-size: 0.7rem;
+}
 .input {
   display: flex;
 }
@@ -135,7 +135,9 @@ footer {
     padding: 1rem 0;
 
   }
-
+.italic {
+  font-size: 0.9rem;
+}
   ul {
     display: block;
   }

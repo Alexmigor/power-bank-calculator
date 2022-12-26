@@ -71,12 +71,12 @@ function App() {
   return (
     <div className="App">
       <main className="App-main">
-        <i style={{ fontSize: "0.9rem" }}>Даний калькулятор призначений для розрахунку потужності інвертора та ємності автомобільного акумулятора для домашнього аварійного повербанку</i>
+        <p className='italic'>Даний калькулятор призначений для розрахунку потужності інвертора та ємності автомобільного акумулятора для домашнього аварійного повербанку</p>
         <h1>Calculator</h1>
         <h2>Emergency Power Bank for Home</h2>
         <div className='power' >
           <h3>Визначити потужність виробу у Ватах</h3>
-          <i>V</i> = <input value={volt} type="number" onChange={e => setVolt(e.target.value)} /> <i>A</i> =  <input value={amper} type="number" onChange={e => setAmper(e.target.value)} /><i>W</i> (Вт) = <span className='green'>{result}</span>
+          <p><i>V</i> = <input value={volt} type="number" onChange={e => setVolt(e.target.value)} /> <i>A</i> =  <input value={amper} type="number" onChange={e => setAmper(e.target.value)} /><i>W</i> (Вт) = <span className='green'>{result}</span></p>
 
         </div>
 
@@ -112,7 +112,7 @@ function App() {
 
       </main>
 
-      <footer>&copy; 2022 <a href='mailto:studimag@gmail.com'>&nbsp;Studio-MAG</a>&nbsp; <img src='flag2.png' width="15" ></img></footer>
+      <footer>&copy; 2022 <a href='mailto:studimag@gmail.com'>&nbsp;Studio-MAG</a>&nbsp; <img src='flag2.png' alt='flag Ukraine' width="15" ></img></footer>
     </div>
   );
 }
