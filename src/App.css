@@ -105,6 +105,9 @@ li span {
 .el--Name {
   width: 12rem;
 }
+.small {
+  margin-top: 0;
+}
 
 a:link {
   color: #72bdcf;
