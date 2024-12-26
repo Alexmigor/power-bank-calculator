@@ -107,6 +107,7 @@ li span {
 }
 .small {
   margin-top: 0;
+  font-style: italic;
 }
 
 a:link {
