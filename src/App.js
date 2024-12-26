@@ -96,7 +96,7 @@ function App() {
           <button onClick={() => { setAllInput([]); setTot(0) }}  >Скинути</button>
 
           <br />
-          <p className='green' >Разом: {tot} Вт</p>
+          <p className='green' >Разом: {tot} Вт (W)</p>
           <p >Номінальна потужність вашого інвертора має бути більшою за вищевказане значення.</p>
 
         </div>
