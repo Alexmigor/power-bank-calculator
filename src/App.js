@@ -75,7 +75,8 @@ function App() {
         <h1>Calculator</h1>
         <h2>Emergency Power Bank for Home</h2>
         <div className='power' >
-          <h3>Визначити потужність виробу у Ватах <small> (пропустіть цей розділ, якщо на вашому пристрої вказана потужність у Ватах (W))</small></h3>
+          <h3>Визначити потужність виробу у Ватах </h3>
+          <p><small> пропустіть цей розділ, якщо на вашому пристрої вказана потужність у Ватах (W)</small></p>
           <p><i>V</i> = <input value={volt} type="number" onChange={e => setVolt(e.target.value)} /> <i>A</i> =  <input value={amper} type="number" onChange={e => setAmper(e.target.value)} /><i>W</i> (Вт) = <span className='green'>{result}</span></p>
 
         </div>
