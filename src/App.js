@@ -72,8 +72,8 @@ function App() {
     <div className="App">
       <main className="App-main">
         <p className='italic'>Даний калькулятор призначений для розрахунку потужності інвертора та ємності автомобільного акумулятора для домашнього аварійного повербанку</p>
-        <h1>Calculator</h1> !
-        <h2>Emergency Power Bank for Home</h2>
+        <h1>Calculator</h1>
+        <h2>Emergency Power Bank for Home <small> (пропустіть цей розділ, якщо на вашому пристрої вказана потужність у Ватах (W))</small></h2>
         <div className='power' >
           <h3>Визначити потужність виробу у Ватах</h3>
           <p><i>V</i> = <input value={volt} type="number" onChange={e => setVolt(e.target.value)} /> <i>A</i> =  <input value={amper} type="number" onChange={e => setAmper(e.target.value)} /><i>W</i> (Вт) = <span className='green'>{result}</span></p>
@@ -82,7 +82,7 @@ function App() {
 
         <div className='all-power' >
           <h3>Визначити загальну потужність усіх пристроїв</h3>
-          <p className='left'>- Якщо на вашому пристрої вказана потужність не у Ватах, а у Вольтах (V) та Амперах (A), cкористайтеся розділом вище, щоб перевести їх у Вати (W).
+          <p className='left'>- Якщо на вашому пристрої вказана потужність не у Ватах (W), а у Вольтах (V) та Амперах (A), cкористайтеся розділом вище, щоб перевести їх у Вати (W).
             <br />- Складіть список пристроїв, які одночасно працюватимуть від вашого інвертора.
             <br />- Введіть значення потужності у Ватах для кожного з них.
             <br />- Натисніть на "Результат".</p>
