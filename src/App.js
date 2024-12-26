@@ -72,7 +72,7 @@ function App() {
     <div className="App">
       <main className="App-main">
         <p className='italic'>Даний калькулятор призначений для розрахунку потужності інвертора та ємності автомобільного акумулятора для домашнього аварійного повербанку</p>
-        <h1>Calculator</h1>
+        <h1>Calculator</h1> !
         <h2>Emergency Power Bank for Home</h2>
         <div className='power' >
           <h3>Визначити потужність виробу у Ватах</h3>
